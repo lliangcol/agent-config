@@ -2,7 +2,7 @@
 
 ## Source Of Truth
 
-- Baseline document: `D:\Work\Resources\Config\Develop\Windows11_开发环境重装配置说明.md`
+- Baseline document: private workstation setup notes, summarized here without machine-specific paths.
 - Repository rules: default remains `audit-only`; real installs, login flows, plugin installation, MCP registration, and system package installation remain disallowed by default.
 
 ## Draft Plan

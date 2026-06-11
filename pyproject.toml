@@ -6,11 +6,25 @@ build-backend = "setuptools.build_meta"
 name = "agent-capability-bootstrap-audit"
 version = "0.1.0"
 description = "Audit AI agent workstation capabilities and generate confirmation-gated install plans."
-readme = "docs/architecture.md"
+readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 authors = [{ name = "agent-config maintainers" }]
 dependencies = []
+keywords = ["ai-agents", "audit", "codex", "claude-code", "workstation-bootstrap"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: System :: Systems Administration",
+]
 
 [project.optional-dependencies]
 test = ["pytest>=8"]

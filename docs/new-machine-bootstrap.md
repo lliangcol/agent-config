@@ -8,7 +8,7 @@ Start with OS-level basics before Agent-specific checks. The Windows workstation
 4. Review risks and missing items.
 5. Generate an install plan only after confirming the target Agent with `--agent codex`, `--agent claude-code`, or `--agent generic`.
 6. Use `apply` only for explicit host configuration changes from a structured change-set file:
-   `python -m agent_bootstrap apply --change-set config/change-sets/windows-dev-safe.example.yaml --format markdown`.
+   `python skills/agent-capability-bootstrap-audit/scripts/audit-agent-capabilities.py apply --change-set config/change-sets/windows-dev-safe.example.yaml --format markdown`.
 7. To execute allowlisted host configuration changes, rerun with `--confirm EXECUTE_HOST_CHANGES` after reviewing the dry-run output.
 
 The bootstrap scripts print next steps but do not install tools. `apply` blocks package installs, login flows, plugin installation, MCP registration, and arbitrary shell commands.

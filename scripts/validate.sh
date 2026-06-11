@@ -24,6 +24,7 @@ step() {
 step "Python syntax check" "$PYTHON" -c "import ast, pathlib; paths=[p for root in ['src','tests','scripts','skills'] for p in pathlib.Path(root).rglob('*.py')]; [ast.parse(p.read_text(encoding='utf-8'), filename=str(p)) for p in paths]; print(f'python syntax ok: {len(paths)}')"
 step "pytest" "$PYTHON" -m pytest -q -p no:cacheprovider
 step "JSON schemas load" "$PYTHON" -c "import json, pathlib; [json.loads(p.read_text(encoding='utf-8')) for p in pathlib.Path('schemas').glob('*.json')]; print('schemas ok')"
+step "Project metadata load" "$PYTHON" -c "import pathlib, tomllib; data=tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8')); assert data['project']['name'] == 'agent-capability-bootstrap-audit'; print('pyproject ok')"
 step "YAML configs load" "$PYTHON" -c "from pathlib import Path; from agent_bootstrap.core.policy import load_yaml_file; paths=list(Path('config').glob('**/*.yaml')); [load_yaml_file(p) for p in paths]; print(f'configs ok: {len(paths)}')"
 step "Config shapes" "$PYTHON" scripts/validate-config-shapes.py
 step "CLI smoke audit" "$PYTHON" -m agent_bootstrap audit --profile config/profiles/default.yaml --agent generic --format json

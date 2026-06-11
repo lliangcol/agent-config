@@ -59,6 +59,10 @@ Step "JSON schemas load" {
   Invoke-Python @("-c", "import json, pathlib; [json.loads(p.read_text(encoding='utf-8')) for p in pathlib.Path('schemas').glob('*.json')]; print('schemas ok')")
 }
 
+Step "Project metadata load" {
+  Invoke-Python @("-c", "import pathlib, tomllib; data=tomllib.loads(pathlib.Path('pyproject.toml').read_text(encoding='utf-8')); assert data['project']['name'] == 'agent-capability-bootstrap-audit'; print('pyproject ok')")
+}
+
 Step "YAML configs load" {
   Invoke-Python @("-c", "from pathlib import Path; from agent_bootstrap.core.policy import load_yaml_file; paths=list(Path('config').glob('**/*.yaml')); [load_yaml_file(p) for p in paths]; print(f'configs ok: {len(paths)}')")
 }

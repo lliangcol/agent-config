@@ -20,9 +20,9 @@ Use this skill to audit and plan by default. Use `apply` only for explicit, stru
 7. After any user-performed installation, run `verify-only`:
    `python skills/agent-capability-bootstrap-audit/scripts/audit-agent-capabilities.py verify --agent <codex|claude-code|generic> --format markdown`
 8. For host configuration changes, dry-run a structured change set first:
-   `python -m agent_bootstrap apply --change-set config/change-sets/windows-dev-safe.example.yaml --format markdown`
+   `python skills/agent-capability-bootstrap-audit/scripts/audit-agent-capabilities.py apply --change-set config/change-sets/windows-dev-safe.example.yaml --format markdown`
 9. Execute only after explicit confirmation:
-   `python -m agent_bootstrap apply --change-set <path> --confirm EXECUTE_HOST_CHANGES --format markdown`
+   `python skills/agent-capability-bootstrap-audit/scripts/audit-agent-capabilities.py apply --change-set <path> --confirm EXECUTE_HOST_CHANGES --format markdown`
 
 `apply` must not install packages, perform login flows, install plugins, register MCP servers, or run arbitrary shell commands.
 
