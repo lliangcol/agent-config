@@ -1,0 +1,46 @@
+{
+  "agent": "codex",
+  "name": "openai-curated",
+  "source": {
+    "type": "official",
+    "value": "OpenAI curated Codex plugin and skill directory",
+    "ref": null
+  },
+  "trust": {
+    "level": "official",
+    "pinned": true,
+    "validated_by": [
+      "https://developers.openai.com/codex/plugins",
+      "https://developers.openai.com/codex/skills",
+      "https://developers.openai.com/codex/plugins/build"
+    ]
+  },
+  "policy": {
+    "default_mode": "plan-install"
+  },
+  "capabilities": {
+    "plugins": [
+      {
+        "name": "OpenAI curated plugins",
+        "install_hint": "Open Codex Plugins or run codex plugin marketplace list before choosing a plugin"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Codex user or repo skills",
+        "install_hint": "Copy only after confirmation to .agents/skills or $HOME/.agents/skills"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "Codex MCP servers",
+        "install_hint": "Plan config.toml changes or codex mcp add; do not execute automatically"
+      }
+    ]
+  },
+  "validation_commands": [
+    "codex plugin marketplace list",
+    "codex plugin list",
+    "codex mcp --help"
+  ]
+}

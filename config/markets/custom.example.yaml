@@ -1,0 +1,30 @@
+{
+  "agent": "generic",
+  "name": "custom-example",
+  "source": {
+    "type": "github",
+    "value": "example/agent-tools",
+    "ref": null
+  },
+  "trust": {
+    "level": "third-party",
+    "pinned": false,
+    "validated_by": []
+  },
+  "policy": {
+    "default_mode": "audit-only"
+  },
+  "capabilities": {
+    "plugins": [
+      {
+        "name": "example-plugin",
+        "install_hint": "Do not install; inspect marketplace metadata first"
+      }
+    ],
+    "skills": [],
+    "mcp_servers": []
+  },
+  "validation_commands": [
+    "manual: review marketplace source, pin ref, run official validator when available"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "os",
+    "shell",
+    "arch",
+    "tools",
+    "package_managers",
+    "network",
+    "agent",
+    "config_paths",
+    "installed_summary",
+    "missing",
+    "recommended",
+    "risks",
+    "confirmation_required",
+    "verification_commands"
+  ],
+  "properties": {
+    "os": { "type": "string" },
+    "shell": { "type": "string" },
+    "arch": { "type": "string" },
+    "agent": { "enum": ["codex", "claude-code", "generic"] },
+    "tools": { "type": "object" },
+    "package_managers": { "type": "object" },
+    "network": { "type": "array" },
+    "config_paths": { "type": "array" },
+    "installed_summary": { "type": "object" },
+    "missing": { "type": "array" },
+    "recommended": { "type": "array" },
+    "risks": { "type": "array" },
+    "confirmation_required": { "type": "array" },
+    "verification_commands": { "type": "array" },
+    "capabilities": { "type": "object" }
+  },
+  "additionalProperties": true
+}

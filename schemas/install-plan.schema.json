@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["mode", "actions", "blocked_actions", "validation_steps", "confirmation_required", "risk_summary"],
+  "properties": {
+    "mode": { "enum": ["audit-only", "plan-install", "execute-after-confirm", "verify-only"] },
+    "actions": { "type": "array" },
+    "blocked_actions": { "type": "array" },
+    "validation_steps": { "type": "array" },
+    "confirmation_required": { "type": "array" },
+    "risk_summary": { "type": "array" }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agent Capability Bootstrap Audit"
+  short_description: "Audit Codex, Claude Code, MCP, skills, plugins, and workstation prerequisites."
+  default_prompt: "Use agent-capability-bootstrap-audit to audit this machine and generate an audit-only report."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["mode", "dry_run", "change_set", "executed", "blocked", "skipped", "confirmation_required", "risks"],
+  "properties": {
+    "mode": { "enum": ["execute-after-confirm"] },
+    "dry_run": { "type": "boolean" },
+    "change_set": { "type": "string" },
+    "executed": { "type": "array" },
+    "blocked": { "type": "array" },
+    "skipped": { "type": "array" },
+    "confirmation_required": { "type": "array" },
+    "risks": { "type": "array" }
+  },
+  "additionalProperties": true
+}

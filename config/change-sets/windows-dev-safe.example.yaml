@@ -1,0 +1,69 @@
+{
+  "name": "windows-dev-safe-host-config",
+  "description": "Confirmation-gated host configuration actions from the Win11 + WSL baseline. This file intentionally excludes installs, logins, plugin installs, MCP registration, and placeholder email values.",
+  "actions": [
+    {
+      "id": "git-init-default-branch",
+      "type": "git_config",
+      "title": "Set Git default branch to main",
+      "scope": "global",
+      "key": "init.defaultBranch",
+      "value": "main"
+    },
+    {
+      "id": "git-core-autocrlf",
+      "type": "git_config",
+      "title": "Disable Git autocrlf for Windows/WSL consistency",
+      "scope": "global",
+      "key": "core.autocrlf",
+      "value": "false"
+    },
+    {
+      "id": "git-core-eol",
+      "type": "git_config",
+      "title": "Set Git EOL to LF",
+      "scope": "global",
+      "key": "core.eol",
+      "value": "lf"
+    },
+    {
+      "id": "git-pull-rebase",
+      "type": "git_config",
+      "title": "Use merge behavior for git pull",
+      "scope": "global",
+      "key": "pull.rebase",
+      "value": "false"
+    },
+    {
+      "id": "git-fetch-prune",
+      "type": "git_config",
+      "title": "Prune deleted remote branches on fetch",
+      "scope": "global",
+      "key": "fetch.prune",
+      "value": "true"
+    },
+    {
+      "id": "git-credential-helper",
+      "type": "git_config",
+      "title": "Use Git Credential Manager",
+      "scope": "global",
+      "key": "credential.helper",
+      "value": "manager"
+    },
+    {
+      "id": "git-editor-zed",
+      "type": "git_config",
+      "title": "Use Zed as Git editor",
+      "scope": "global",
+      "key": "core.editor",
+      "value": "zed --wait"
+    },
+    {
+      "id": "powershell-execution-policy",
+      "type": "powershell_execution_policy",
+      "title": "Allow current user PowerShell scripts",
+      "policy": "RemoteSigned",
+      "scope": "CurrentUser"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "windows-dev",
+  "agent": "auto",
+  "required_tools": ["git", "node", "python"],
+  "target_wsl_distro": "Ubuntu-24.04",
+  "package_managers": {
+    "required": ["winget"],
+    "optional": ["scoop"],
+    "advisory": ["choco"]
+  },
+  "workstation": {
+    "windows": {
+      "node_manager": "volta",
+      "node_major": 22,
+      "python_manager": "uv",
+      "python_version": "3.12"
+    },
+    "wsl": {
+      "distro": "Ubuntu-24.04",
+      "node_manager": "fnm",
+      "node_major": 22,
+      "python_manager": "uv",
+      "python_version": "3.12",
+      "java_major": 17
+    }
+  },
+  "marketplaces": [
+    "config/markets/codex-official.yaml",
+    "config/markets/claude-official.yaml"
+  ],
+  "policy": "config/policies/install-policy.yaml"
+}

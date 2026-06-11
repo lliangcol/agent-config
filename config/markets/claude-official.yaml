@@ -1,0 +1,47 @@
+{
+  "agent": "claude-code",
+  "name": "claude-plugins-official",
+  "source": {
+    "type": "official",
+    "value": "anthropics/claude-plugins-official",
+    "ref": null
+  },
+  "trust": {
+    "level": "official",
+    "pinned": true,
+    "validated_by": [
+      "https://code.claude.com/docs/en/discover-plugins",
+      "https://code.claude.com/docs/en/plugins-reference",
+      "https://code.claude.com/docs/en/mcp"
+    ]
+  },
+  "policy": {
+    "default_mode": "plan-install"
+  },
+  "capabilities": {
+    "plugins": [
+      {
+        "name": "Claude Code official plugins",
+        "install_hint": "claude plugin list --available --json, then /plugin install <name>@claude-plugins-official after confirmation"
+      }
+    ],
+    "skills": [
+      {
+        "name": "Claude Code skills",
+        "install_hint": "Copy only after confirmation to .claude/skills or $HOME/.claude/skills"
+      }
+    ],
+    "mcp_servers": [
+      {
+        "name": "Claude Code MCP servers",
+        "install_hint": "Plan .mcp.json or claude mcp add; do not execute automatically"
+      }
+    ]
+  },
+  "validation_commands": [
+    "claude plugin marketplace list --json",
+    "claude plugin list --json",
+    "claude mcp list",
+    "claude plugin validate ."
+  ]
+}

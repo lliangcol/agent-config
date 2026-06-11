@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-capability-bootstrap-audit"
+version = "0.1.0"
+description = "Audit AI agent workstation capabilities and generate confirmation-gated install plans."
+readme = "docs/architecture.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "agent-config maintainers" }]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+agent-bootstrap = "agent_bootstrap.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

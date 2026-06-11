@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["agent", "name", "source", "trust", "policy", "capabilities", "validation_commands"],
+  "properties": {
+    "agent": { "enum": ["codex", "claude-code", "generic"] },
+    "name": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "enum": ["official", "github", "git", "url", "local"] },
+        "value": { "type": "string" },
+        "ref": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "trust": {
+      "type": "object",
+      "required": ["level", "pinned", "validated_by"],
+      "properties": {
+        "level": { "enum": ["official", "organization", "personal", "third-party", "unknown"] },
+        "pinned": { "type": "boolean" },
+        "validated_by": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "additionalProperties": true
+    },
+    "policy": {
+      "type": "object",
+      "required": ["default_mode"],
+      "properties": {
+        "default_mode": { "enum": ["audit-only", "plan-install", "execute-after-confirm"] }
+      },
+      "additionalProperties": true
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "plugins": { "type": "array" },
+        "skills": { "type": "array" },
+        "mcp_servers": { "type": "array" }
+      },
+      "additionalProperties": true
+    },
+    "validation_commands": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

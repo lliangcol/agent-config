@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["name", "agent", "required_tools", "marketplaces"],
+  "properties": {
+    "name": { "type": "string" },
+    "agent": { "enum": ["auto", "codex", "claude-code", "generic"] },
+    "required_tools": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "marketplaces": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "target_wsl_distro": { "type": "string" },
+    "package_managers": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        {
+          "type": "object",
+          "properties": {
+            "required": { "type": "array", "items": { "type": "string" } },
+            "optional": { "type": "array", "items": { "type": "string" } },
+            "advisory": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "recommended_checks": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "workstation": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "policy": { "type": "string" }
+  },
+  "additionalProperties": true
+}

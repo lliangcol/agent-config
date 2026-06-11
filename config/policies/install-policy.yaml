@@ -1,0 +1,16 @@
+{
+  "default_mode": "audit-only",
+  "allowed_modes": ["audit-only", "plan-install", "execute-after-confirm", "verify-only"],
+  "v1_execution": {
+    "real_install": false,
+    "login": false,
+    "authorization": false,
+    "system_package_install": false,
+    "plugin_install": false
+  },
+  "remote_source_policy": {
+    "github_requires_pin": true,
+    "git_requires_pin": true,
+    "url_requires_pin": true
+  }
+}

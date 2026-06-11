@@ -1,0 +1,24 @@
+{
+  "name": "ai-coding-workstation",
+  "agent": "auto",
+  "required_tools": ["git", "node", "python"],
+  "target_wsl_distro": "Ubuntu-24.04",
+  "recommended_checks": [
+    "github-connectivity",
+    "path",
+    "proxy",
+    "agent-config",
+    "wsl2-ubuntu-24.04",
+    "volta-node-22",
+    "fnm-node-22",
+    "uv-python-3.12",
+    "docker-desktop-wsl2",
+    "git-ssh"
+  ],
+  "marketplaces": [
+    "config/markets/codex-official.yaml",
+    "config/markets/claude-official.yaml",
+    "config/markets/custom.example.yaml"
+  ],
+  "policy": "config/policies/install-policy.yaml"
+}

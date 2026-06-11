@@ -1,0 +1,11 @@
+{
+  "name": "default",
+  "agent": "auto",
+  "required_tools": ["git", "node", "python"],
+  "marketplaces": [
+    "config/markets/codex-official.yaml",
+    "config/markets/claude-official.yaml",
+    "config/markets/custom.example.yaml"
+  ],
+  "policy": "config/policies/install-policy.yaml"
+}

@@ -1,0 +1,29 @@
+{
+  "trust_levels": {
+    "official": {
+      "can_recommend": true,
+      "can_plan_install": true,
+      "requires_confirmation": false
+    },
+    "organization": {
+      "can_recommend": true,
+      "can_plan_install": true,
+      "requires_confirmation": true
+    },
+    "personal": {
+      "can_recommend": true,
+      "can_plan_install": true,
+      "requires_confirmation": true
+    },
+    "third-party": {
+      "can_recommend": false,
+      "can_plan_install": false,
+      "requires_confirmation": true
+    },
+    "unknown": {
+      "can_recommend": false,
+      "can_plan_install": false,
+      "requires_confirmation": true
+    }
+  }
+}
