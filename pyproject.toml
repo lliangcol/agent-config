@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "agent-config maintainers" }]
-dependencies = []
+dependencies = ["PyYAML>=6.0"]
 keywords = ["ai-agents", "audit", "codex", "claude-code", "workstation-bootstrap"]
 classifiers = [
   "Development Status :: 3 - Alpha",

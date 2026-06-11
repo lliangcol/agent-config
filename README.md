@@ -29,7 +29,12 @@ Blocked action types include package installs, agent login/install flows, plugin
 Requirements:
 
 - Python 3.11 or newer
-- `pytest` for the validation gate
+
+Install the package and validation dependencies from a source checkout:
+
+```powershell
+python -m pip install -e ".[test]"
+```
 
 Run a read-only audit from a source checkout:
 
@@ -49,7 +54,7 @@ Dry-run an allowlisted host configuration change set:
 python skills/agent-capability-bootstrap-audit/scripts/audit-agent-capabilities.py apply --change-set config/change-sets/windows-dev-safe.example.yaml --format markdown
 ```
 
-If the package is installed in a Python environment, the equivalent console command is `agent-bootstrap`.
+If the package is installed in a Python environment, the equivalent console command is `agent-bootstrap`. Run source-relative commands from the repository root so the default files under `config/` are available.
 
 ## Validation
 
