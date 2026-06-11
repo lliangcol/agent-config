@@ -41,7 +41,7 @@ def test_command_runner_executes_windows_powershell_shims(monkeypatch):
         calls["kwargs"] = kwargs
         return SimpleNamespace(returncode=0, stdout="scoop ok", stderr="")
 
-    monkeypatch.setattr(evidence_module.os, "name", "nt", raising=False)
+    monkeypatch.setattr(evidence_module, "_is_windows_host", lambda: True)
     monkeypatch.setattr(evidence_module.shutil, "which", fake_which)
     monkeypatch.setattr(evidence_module.subprocess, "run", fake_run)
 

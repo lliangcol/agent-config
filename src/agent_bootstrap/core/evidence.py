@@ -4,7 +4,7 @@ import os
 import shutil
 import socket
 import subprocess
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Iterable, Sequence
 
 from .model import Evidence
@@ -69,8 +69,7 @@ class CommandRunner:
         )
 
     def _prepare_invocation(self, args: Sequence[str], resolved_command: str) -> tuple[list[str], str | None]:
-        path = Path(resolved_command)
-        if os.name == "nt" and path.suffix.lower() == ".ps1":
+        if _is_windows_host() and PureWindowsPath(resolved_command).suffix.lower() == ".ps1":
             powershell = self.which("pwsh") or self.which("powershell")
             if powershell is None:
                 return [], "PowerShell not found; cannot execute Windows .ps1 command shim"
@@ -103,9 +102,13 @@ def path_evidence(path: Path, label: str) -> Evidence:
 
 
 def path_verify_command(path: Path) -> str:
-    if os.name == "nt":
+    if _is_windows_host():
         return f"Test-Path -LiteralPath {_quote_powershell_literal(str(path))}"
     return f"test -e {_quote_posix_literal(str(path))}"
+
+
+def _is_windows_host() -> bool:
+    return os.name == "nt"
 
 
 def _quote_powershell_literal(value: str) -> str:
